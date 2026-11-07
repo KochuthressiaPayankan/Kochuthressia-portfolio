@@ -1,40 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600;700&family=Pacifico&display=swap');
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  /* The Cherry Maison palette */
+  --cherry: #681D35;
+  --cherry-dark: #481326;
+  --pink: #F3C5D0;
+  --pink-dark: #D99BAD;
+  --cream: #F3EBDD;
+  --cream-light: #FBF6ED;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+  /* Supporting colours */
+  --ink: #42232C;
+  --muted: #8C716F;
 
-html {
-  height: 100%;
-}
+  /* Typography */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', Arial, sans-serif;
+  --font-script: 'Pacifico', cursive;
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* Layout */
+  --page-width: 1440px;
+  --page-padding: 5vw;
 }
 
 * {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--cream);
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--cream);
+  color: var(--cherry);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -42,8 +49,62 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--pink);
+  color: var(--cherry-dark);
+}
+
+/* Typography */
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+}
+
+.script {
+  font-family: var(--font-script);
+}
+
+.eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* Reusable page container */
+
+.container {
+  width: min(100% - 2 * var(--page-padding), var(--page-width));
+  margin-inline: auto;
+}
+
+/* Accessibility */
+
+:focus-visible {
+  outline: 2px solid var(--cherry);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }
